@@ -20,12 +20,20 @@ class FamilyStructure:
         return randint(0, 99999999)
 
     def add_member(self, member):
+    
         # fill this method and update the return
-        member['id'] = self._generateId()
-        member['last_name'] = self.last_name
-        self._members.append(member)
+        if member.get('id'):
+            
+            member['last_name'] = self.last_name
+            self._members.append(member)
+            
+        else:
+            member['id'] = self._generateId()
+            member['last_name'] = self.last_name
+            self._members.append(member)
+            
+        return member
 
-        return f"Miembro {member["first_name"]} agregado exitosamente"
 
     def delete_member(self, id):
         # fill this method and update the return
